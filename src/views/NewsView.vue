@@ -72,6 +72,7 @@ onMounted(() => {
 <style lang="css" scoped>
 .news-list {
   margin-top: 30px;
+  margin-bottom: 30px;
 }
 h1 {
   color: #fff;

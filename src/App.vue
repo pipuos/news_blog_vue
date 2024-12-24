@@ -159,8 +159,8 @@ main {
   right: 20px;
   text-align: center;
   background: white;
-  padding: 5px;
-  opacity: .6;
+  padding: 10px;
+  opacity: .5;
   border-radius: 20px;
   cursor: default;
   color: #000;
