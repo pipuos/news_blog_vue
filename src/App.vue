@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
+import { onMounted, reactive } from 'vue'
+import moment from 'moment'
 
 const linksSportNews = [
   {name: "Футбол", slug: "football"},
@@ -8,6 +10,32 @@ const linksSportNews = [
   {name: "Формула 1", slug: "formula1"},
   {name: "Баскетбол", slug: "basketball"},
 ]
+
+const remaining = reactive<{
+  minutes: number | null,
+  hours: number | null,
+  seconds: number | null,
+}>({
+  minutes: 0,
+  hours: 0,
+  seconds: 0,
+})
+
+onMounted(() => {
+  setInterval(() => {
+    setTime()
+  }, 1000)
+
+  const eventTime = moment('2025.01.01 00:00:10', 'YYYY.MM.DD HH:mm:ss')
+
+  function setTime() {
+    const currenTime = moment()
+    remaining.hours = moment.duration(eventTime.diff(currenTime)).asHours()
+    remaining.minutes = moment.duration(eventTime.diff(currenTime)).get('minutes')
+    remaining.seconds = moment.duration(eventTime.diff(currenTime)).get('seconds')
+  }
+
+})
 </script>
 
 <template>
@@ -35,6 +63,13 @@ const linksSportNews = [
     <main>
       <RouterView />
     </main>
+  </div>
+
+  <div class="timer" v-if="Object.keys(remaining).length > 0">
+    <span>До нового года осталось: </span> <br>
+    {{ remaining.hours?.toFixed(0) }} часов
+    {{ remaining.minutes?.toFixed(0) }} минут
+    {{ remaining.seconds?.toFixed(0) }} секунд
   </div>
 </template>
 
@@ -99,5 +134,23 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.timer {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  text-align: center;
+  background: white;
+  padding: 5px;
+  opacity: .6;
+  border-radius: 20px;
+  cursor: default;
+  color: #000;
+  user-select: none;
+}
+
+.timer:hover {
+  opacity: 1;
 }
 </style>
