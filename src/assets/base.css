@@ -36,3 +36,20 @@ body {
   width: 100%;
   margin: 0 auto;
 }
+
+
+.page-title {
+  color: #fff;
+  background: radial-gradient(
+          153.31% 110.62% at 136.92% 38.13%,
+          rgb(218, 127, 52) 0,
+          rgb(246, 60, 9) 35.42%,
+          rgb(201, 88, 82) 61.46%,
+          rgb(231, 67, 67) 100%
+  );
+  padding: 10px 10px 7px 10px;
+  border-radius: 0 0 8px 8px;
+  font-size: 1em;
+  display: inline-block;
+  font-weight: bold;
+}
