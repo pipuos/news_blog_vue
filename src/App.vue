@@ -60,7 +60,7 @@ onMounted(() => {
             </div>
           </div>
 
-          <RouterLink class="header-link" to="/horoscope/rak">Гороскоп</RouterLink>
+<!--          <RouterLink class="header-link" to="/horoscope/rak">Гороскоп</RouterLink>-->
           <RouterLink class="header-link" to="/rates">Курсы валют</RouterLink>
         </nav>
 
