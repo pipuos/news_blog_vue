@@ -42,21 +42,29 @@ onMounted(() => {
   <div class="wrapper">
     <header>
       <a style="display: flex" href="https://xn--b1agazb5ah1e.xn--p1ai/novyj_god_vkazhdyj_dom">
-        <img src="/public/images/optimize.webp" alt="" />
+        <img src="/images/optimize.webp" alt="" />
       </a>
 
       <div class="header">
-        <RouterLink class="header-link" to="/">Главная</RouterLink>
+        <RouterLink class="logo" to="/">
+          <img src="/images/logo.svg" alt="" />
+        </RouterLink>
 
-        <div class="dropdown-menu">
-          <span class="header-link">Новости спорта</span>
-          <div class="dropdown-items">
-            <RouterLink class="header-link" v-for="(item, idx) in linksSportNews" :key="idx" :to="'/news/' + item.slug">{{item.name}}</RouterLink>
+        <nav>
+          <RouterLink class="header-link" to="/">Главная</RouterLink>
+
+          <div class="dropdown-menu">
+            <span class="header-link">Новости спорта</span>
+            <div class="dropdown-items">
+              <RouterLink class="header-link" v-for="(item, idx) in linksSportNews" :key="idx" :to="'/news/' + item.slug">{{item.name}}</RouterLink>
+            </div>
           </div>
-        </div>
 
-        <RouterLink class="header-link" to="/horoscope/rak">Гороскоп</RouterLink>
-        <RouterLink class="header-link" to="/rates">Курсы валют</RouterLink>
+          <RouterLink class="header-link" to="/horoscope/rak">Гороскоп</RouterLink>
+          <RouterLink class="header-link" to="/rates">Курсы валют</RouterLink>
+        </nav>
+
+        <div></div>
       </div>
     </header>
 
@@ -74,7 +82,17 @@ onMounted(() => {
 </template>
 
 <style scoped>
-
+.logo {
+  display: flex;
+  margin-right: 15px;
+}
+.logo img {
+  height: 60px;
+}
+nav {
+  display: flex;
+  gap: 10px;
+}
 .header-link {
   text-decoration: none;
   color: #000;
@@ -125,7 +143,6 @@ header img {
   align-items: center;
   justify-content: center;
   background: #fff;
-  gap: 10px;
   padding: 20px 10px;
   box-shadow: 0 2px 4px 1px rgba(179, 179, 179, 0.5);
 }
