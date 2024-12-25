@@ -18,11 +18,6 @@ const router = createRouter({
       component: () => import('@/views/NewsView.vue'),
     },
     {
-      path: '/horoscope/:type',
-      name: 'horoscope',
-      component: () => import('@/views/HoroscopeView.vue'),
-    },
-    {
       path: '/rates',
       name: 'rates',
       component: () => import('@/views/RatesView.vue'),
